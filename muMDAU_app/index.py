@@ -10,3 +10,11 @@ def index():
         pass
     else:
         return render_template('index.html')
+
+
+@main.route('/about', methods=['GET', 'POST'])
+def about():
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('about.html')
