@@ -1,83 +1,72 @@
-<!DOCTYPE HTML>
-<!--
-	Astral by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>羽天珼岸 . HakureiWing - Powerd by 0MuMDAU</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/static/css/main.css" />
-		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<script src="//s3-ap-northeast-1.amazonaws.com/justfont-user-script/jf-40139.js"></script>
-	</head>
-	<body>
+{% extends "nbase.html"%}
+{% block title %}Index{% endblock %}
+{% block top %}
+<div class="ui pointing vertical menu" style="width:90%;" >
 
-		<!-- Wrapper-->
-			<div id="wrapper">
+  <a class="item active" style="pading:1px;">
+	  <h4><i style="padding-right:4px;" class="fa fa-home"></i>  羽天珼岸 HakureiWing </h4>
+  </a>
+  <a class="item" href="http://news.hakurei.com.tw">
+	 <i style="padding-right:5px;"  class="fa fa-comments"></i> 躲雨閒聊 /..Blog
+  </a>
+  <a class="item" href="https://www.facebook.com/HakureiWing/">
+	  <i style="padding-right:5px;"  class="fa fa-facebook-official"></i> 轉移陣地 /..Facebook
+  </a>
+  <a class="item" href="http://www.pixiv.net/member.php?id=2368608">
+	  <i style="padding-right:5px;"  class="fa fa-picture-o"></i> 雨天塗鴉 /..Gallery
+  </a>
+  <a class="item" href="mailto:contact@hakurei.club">
+	  <i style="padding-right:5px;"  class="fa fa-envelope-o"></i> 買把傘吧 /..Contact
+  </a>
+  <div class="item">
+  </div>
+</div>
+<br>
+<div class="ui horizontal divider" style="width:90%;">
+		      我是賣萌的分割線
+</div>
+<br>
+<div class="ui pointing vertical menu" style="width:90%;" >
 
-				<!-- Nav -->
-					<nav id="nav">
-						<a href="/" class="icon fa-home active"><span>首頁</span></a>
-						<a href="http://news.hakurei.com.tw" class="icon fa-feed"><span>最新消息</span></a>
-						<a href="/about" class="icon fa-group"><span>關於繪師</span></a>
-						<a href="https://www.facebook.com/HakureiWing/" class="icon fa-facebook"><span>Facebook</span></a>
-					</nav>
+  <a class="item" style="pading:1px; background:#FFFFBB;">
+	  <h4><i style="padding-right:5px;"class="fa fa-calendar"></i>  預訂參加場次 </h4>
+  </a>
+  <a class="item">
+	 <i style="padding-right:5px;"  class="fa fa-calendar-check-o "></i> 	PF24
+  </a>
+  <div class="item">
+  </div>
+</div>
+{% endblock %}
+{% block picture %}
+<a class="ui fluid image">
+<img   class="ui fluid rounded image" width="100%" src="https://scontent-tpe1-1.xx.fbcdn.net/hphotos-xfp1/t31.0-8/s2048x2048/12829420_899781320168349_8204505409020546450_o.jpg">
+</a>
+{% endblock %}
+{% block content %}
+<h3 class="ui horizontal divider header">
+寫做「志同道合」唸做「腦袋有洞」
+</h3>
+ <h5 class="ui center aligned header">
+本是彼此認識的ACG同好，突然在場次一個發病就開始搞起了同人社團
+<br />
+一切的起因源於FF27，一群同動漫社團、
+<br />
+腦子有洞的ACG同好們決定舉桿起義…… 喔不，我是說成立同人社團。
+<br />
+<br />
+除了目前擔當主筆的繪師夢築以及棉花，我們也會跟其他繪師合作發售商品，增加多元性，風格較不拘。
+<br />
+由於社團成員遍及北中南，所以我們會在台灣各大場次展開活動，歡迎各位同好前與我們交流！
+ </h5>
+{% endblock %}
+{% block script %}
 
-				<!-- Main -->
-					<div id="main" style="background: rgba(255, 255, 255, 0.8); border-radius:10px; width:100%;">
-
-						<!-- Me -->
-							<article id="me" class="panel" style="height:450px; width:100%">
-								<div style="padding-left:1%; width:30%;  height:100%; float:left;">
-									<div style="position: relative;  transform:translateY(-50%);  top:50%;">
-										<img style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH";" width="100%" height"100%" src="/static/img/wind.png">  
-										</div>
-								</div>	
-								<div style="padding-top:9%; padding-left:7%; padding-left:7%; padding-bottom:9%; width:70%; float:left; ">	
-								</br>
-									<a style="font-size:32px; color:rgba(0,0,0,0.75);">
-										<img  width="30%" height"30%" src="/static/img/logo.png"> . 
-									<a style="font-size:22px; color:rgba(0,0,0,0.15);">寫做「志同道合」唸做「腦袋有洞」</a>
-									</a>
-									<br/>
-									<br/>
-									<p style="font-size:16px; color:rgba(0,0,0,0.55);">
-									大家好～咱們是同人社團「羽天珼岸」
-									<br />
-									本是彼此認識的ACG同好，突然在場次一個發病就開始搞起了同人社團
-									<br />
-									主打主打多元風格，不定期在台灣各大場次出沒，有機會歡迎來找我們玩
-								</p>
-								</div>
-
-							</article>
-
-
-					</div>
-
-				<!-- Footer -->
-					<div id="footer">
-						<ul class="copyright">
-							<li>&copy; 羽天珼岸. HakureiWing</li>
-							<br />
-							<li> Design:零夢 . 背景:Gnlp</li>
-						</ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="/static/js/jquery.min.js"></script>
-			<script src="/static/js/skel.min.js"></script>
-			<script src="/static/js/skel-viewport.min.js"></script>
-			<script src="/static/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="/static/js/main.js"></script>
-
-	</body>
-</html>
+		<script>
+$('.ui.sticky')
+.sticky({
+	context: '#nav',
+})
+;
+		</script>
+{% endblock %}
