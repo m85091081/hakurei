@@ -12,12 +12,7 @@ def index():
     if request.method == 'POST':
         pass
     else:
-        # check admin is visable ?
-        answer = countUSER.countAdmin()
-        if answer[0] == 0:
-            return redirect(url_for('init'))
-        else:
-            return render_template('index.html')
+        return render_template('index.html')
 
 # init route to first time use
 @app.route('/init', methods=['GET', 'POST'])
