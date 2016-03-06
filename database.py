@@ -138,10 +138,10 @@ class EventSQL:
         try:
             with sqlite3.connect(sets.sqliteFile) as conn:
                 cursor = conn.cursor()
-                cursor.execute('SELECT * from date ORDER BY datetime DESC LIMIT '+str(int(count)))
+                cursor.execute('SELECT * from date ORDER BY datetime ASC LIMIT '+str(int(count)))
                 data = cursor.fetchall()
                 conn.close
-                return data
+                return data       
         except:
             conn.close
             return False
