@@ -119,3 +119,56 @@ class ManageSQL:
         except:
             conn.close
             return False
+
+## Event related SQL
+class EventSQL:
+    def addEvent(name,date):
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                values = [(str(name), str(date)), ]
+                print(conn.executemany('INSERT INTO date (name,datetime) VALUES (?,?)', values))
+                conn.commit()
+                conn.close
+                return True
+        except:
+            conn.close
+            return False
+
+    def listEvent(count):
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                cursor = conn.cursor()
+                cursor.execute('SELECT * from date ORDER BY datetime DESC LIMIT '+str(int(count)))
+                data = cursor.fetchall()
+                conn.close
+                return data
+        except:
+            conn.close
+            return False
+
+    def setDate(name, date):
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                values = [(date, name), ]
+                conn.executemany('UPDATE date SET datetime=? WHERE name=?', values)
+                conn.commit()
+                conn.close
+                return True
+        except:
+            conn.close
+            return False 
+
+    def delEvent(name):
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                cursor = conn.cursor()
+                values = [(name), ]
+                cursor.execute('delete from date WHERE name=?',values)
+                cursor = conn.cursor()
+                conn.commit()
+                conn.close
+                return True
+        except:
+            conn.close
+            return False 
+
