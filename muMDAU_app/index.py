@@ -13,10 +13,10 @@ def index():
     else:
         return render_template('index.html')
 
-@main.route('/blog', methods=['GET', 'POST'])
-def blog():
+@main.route('/card', methods=['GET', 'POST'])
+def card():
     if request.method == 'POST':
         pass
     else:
-        return render_template('blog.html')
+        return render_template('card.html')
 
