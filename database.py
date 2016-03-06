@@ -11,6 +11,7 @@ class InitDB:
             with sqlite3.connect(sets.sqliteFile) as conn:
                 cursor = conn.cursor()
                 cursor.execute('CREATE TABLE user(username PRIMARY KEY, password, admin ,flogin)')
+                cursor.execute('CREATE TABLE date(name PRIMARY KEY, datetime)')
                 conn.close
                 return True
         except:
