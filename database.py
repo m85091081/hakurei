@@ -146,6 +146,30 @@ class EventSQL:
             conn.close
             return False
 
+    def listAllEvent():
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                cursor = conn.cursor()
+                cursor.execute('SELECT * from date ORDER BY datetime ASC')
+                data = cursor.fetchall()
+                conn.close
+                return data       
+        except:
+            conn.close
+            return False
+
+    def countEvent():
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                cursor = conn.cursor()
+                cursor.execute('SELECT count(*) as COUNT from date')
+                data = cursor.fetchone()
+                conn.close
+                return data       
+        except:
+            conn.close
+            return False
+
     def setDate(name, date):
         try:
             with sqlite3.connect(sets.sqliteFile) as conn:
