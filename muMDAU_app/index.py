@@ -25,4 +25,11 @@ def card():
     if request.method == 'POST':
         pass
     else:
-        return render_template('card.html')
+        elist = EventSQL.listEvent(3)
+        E1Name = elist[0][0]  # NOQA
+        E2Name = elist[1][0]  # NOQA
+        E3Name = elist[2][0]  # NOQA
+        E1D = elist[0][1]  # NOQA
+        E2D = elist[1][1]  # NOQA
+        E3D = elist[2][1]  # NOQA
+        return render_template('card.html', **locals())
