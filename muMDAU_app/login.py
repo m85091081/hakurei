@@ -29,7 +29,7 @@ def login():
 
             if pathuser == hashsha.hexdigest():
                 session['username'] = user
-                return redirect(url_for('panel'))
+                return redirect(url_for('admin'))
             else:
                 return '密碼錯誤'
 
