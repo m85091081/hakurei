@@ -11,7 +11,7 @@ class InitDB:
             with sqlite3.connect(sets.sqliteFile) as conn:
                 cursor = conn.cursor()
                 cursor.execute('CREATE TABLE user(username PRIMARY KEY, password, admin ,flogin)')
-                cursor.execute('CREATE TABLE date(name PRIMARY KEY, datetime)')
+                cursor.execute('CREATE TABLE date(name PRIMARY KEY, datetime, url)')
                 conn.close
                 return True
         except:
@@ -122,11 +122,15 @@ class ManageSQL:
 
 ## Event related SQL
 class EventSQL:
-    def addEvent(name,date):
+    def addEvent(name,date,url = None):
         try:
             with sqlite3.connect(sets.sqliteFile) as conn:
-                values = [(str(name), str(date)), ]
-                print(conn.executemany('INSERT INTO date (name,datetime) VALUES (?,?)', values))
+                if url is None:
+                    values = [(str(name), str(date)), ]
+                    print(conn.executemany('INSERT INTO date (name,datetime) VALUES (?,?)', values))
+                else:
+                    values = [(str(name), str(date), str(url)),]
+                    print(conn.executemany('INSERT INTO date (name,datetime,url) VALUES (?,?,?)', values))
                 conn.commit()
                 conn.close
                 return True
@@ -175,6 +179,18 @@ class EventSQL:
             with sqlite3.connect(sets.sqliteFile) as conn:
                 values = [(date, name), ]
                 conn.executemany('UPDATE date SET datetime=? WHERE name=?', values)
+                conn.commit()
+                conn.close
+                return True
+        except:
+            conn.close
+            return False 
+
+    def setURL(name, url):
+        try:
+            with sqlite3.connect(sets.sqliteFile) as conn:
+                values = [(date, name), ]
+                conn.executemany('UPDATE date SET url=? WHERE name=?', values)
                 conn.commit()
                 conn.close
                 return True
