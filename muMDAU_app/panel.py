@@ -71,7 +71,7 @@ def admin():
         else:
             return redirect(url_for('loginp'))
 
-@app.route('/panel')
+@app.route('/admin/panel')
 def panel():
         if 'username' in session:
             elist = EventSQL.listAllEvent()
