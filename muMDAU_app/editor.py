@@ -60,7 +60,7 @@ def edit(username=None):
 def jsonlist(lists):
     if 'username' in session:
         if lists == 'posts':
-            postpath = './_posts'
+            postpath = './hakureinews/_posts'
         else:
             postpath = './hakureinews/_posts'
 
@@ -100,7 +100,7 @@ def save():
         if not fil.strip():
             return 'please enter title thanks!'
         else:
-            f = open('_posts/' + filen + '.markdown', 'wb+') 
+            f = open('./hakureinews/_posts/' + filen + '.markdown', 'wb+') 
             f.write(argment.encode('UTF-8'))
             f.close()
             return 'system (save)'
@@ -140,7 +140,7 @@ def submit():
 @markdown.route('/list/<listmd>', methods=['GET', 'POST'])
 def markdownr(listmd):
     if request.method == 'POST':
-        f = open('./_posts/' + listmd)
+        f = open('./hakureinews/_posts/' + listmd)
         return f.read()
     else:
         return '你怎摸不去吃大便'
@@ -149,7 +149,7 @@ def markdownr(listmd):
 @markdown.route('/del/posts/<listmd>', methods=['GET', 'POST'])
 def delposts(listmd):
     if request.method == 'POST':
-        filepath = './_posts/' + str(listmd)
+        filepath = './hakureinews/_posts/' + str(listmd)
         os.remove(filepath)
         return 'OK'
     else:
