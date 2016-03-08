@@ -46,28 +46,10 @@ def init():
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
-        blogpath = './hakureinews'
-        # check blog repo
-        if os.path.exists(blogpath):
-            # if blog repo found run pull merge 
-            p = subprocess.Popen(['git pull'], shell=True, cwd='./hakureinews', stdout=PIPE)
-            outcode, error = p.communicate()
-            f = open(setting.s_log, 'ab')
-            # add git log to server.log
-            f.write(str.encode('INFO:pull_blog:git -- ') + outcode)
-            f.close()
-            return 'OK'
-        else:
-            # if blog not found run clone new blog repo
-            p = subprocess.Popen(['git clone ' + setting.gitpath], cwd='./', shell=True, stdout=PIPE, stderr=PIPE)
-            outcode, gitlog = p.communicate()
-            f = open(setting.s_log, 'ab')
-            f.write(str.encode('INFO:cloneblog:git -- ') + gitlog)
-            f.close()        
-            return 'OK'
+        pass
     else:
         if 'username' in session:
-            return render_template('gitload.html')
+            return redirect(url_for('panel'))
         else:
             return redirect(url_for('loginp'))
 
