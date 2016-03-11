@@ -7,12 +7,16 @@ from muMDAU_app.index import main
 from muMDAU_app.editor import peditor
 from muMDAU_app.editor import markdown
 from werkzeug.contrib.fixers import ProxyFix 
+import flask_resize
 # muMDAU_app setting 
 app.secret_key = setting.yourkey
+app.config['RESIZE_URL'] = '/static/img/'
+app.config['RESIZE_ROOT'] = './muMDAU_app/static/img'
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.register_blueprint(peditor, url_prefix='/edit')
 app.register_blueprint(markdown, url_prefix='/md')
 app.register_blueprint(main)
+flask_resize.Resize(app)
 # Main function of MDAUServer
 if __name__ == '__main__':
     # log writeing
