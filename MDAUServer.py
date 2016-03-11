@@ -7,14 +7,12 @@ from muMDAU_app.index import main
 from muMDAU_app.editor import peditor
 from muMDAU_app.editor import markdown
 from werkzeug.contrib.fixers import ProxyFix 
-
 # muMDAU_app setting 
 app.secret_key = setting.yourkey
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.register_blueprint(peditor, url_prefix='/edit')
 app.register_blueprint(markdown, url_prefix='/md')
 app.register_blueprint(main)
-
 # Main function of MDAUServer
 if __name__ == '__main__':
     # log writeing
