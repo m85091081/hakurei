@@ -5,7 +5,7 @@ active
 {% endblock %}
 {% block content %}
 
-
+<div id="gallery">
 <div class="ui fluid  cards" >
   <div class="ui fluid card">
     <div class="ui fluid  image" style="  background:#fff; text-align:center;">
@@ -13,7 +13,7 @@ active
 				  <i class="fa fa-star"></i> 原創
 			  </div>
 		<div style="height:100%; overflow: hidden;">
-			<img  src="/static/img/hana004.jpg">
+			<a href="/static/img/hana004.jpg"><img  src="/static/img/hana004.jpg"></a>
   		</div>
 	</div>
     <div class="extra content">
@@ -35,7 +35,7 @@ active
 				  <i class="fa fa-star"></i> 艦-同人
 			  </div>
 		<div style="height:350px; overflow: hidden;">
-			<img  src={{"/static/img/zhihoe.jpg"}}>
+ <a href="/static/img/zhihoe.jpg"><img  src={{"/static/img/zhihoe.jpg"}}></a>
   		</div>
     </div>
     <div class="extra content">
@@ -55,7 +55,7 @@ active
 				  <i class="fa fa-star"></i> LL-同人
 			  </div>
 		<div style="height:350px; overflow: hidden;">
-			<img  src={{"/static/img/ll.jpg"}}>
+ <a href="/static/img/ll.jpg"><img  src={{"/static/img/ll.jpg"}}></a>
   		</div>
     </div>
     <div class="extra content">
@@ -70,6 +70,7 @@ active
 	</div>
   </div>
 </div>
+
 <!---
 <div class="ui four doubling cards">
   <div class="card" style="height:200px;">
@@ -140,16 +141,19 @@ active
 		</span>
 	</div>
   </div>
-  ---!>
+ --->
+</div>
 </div>
 {% endblock %}
 {% block script %}
-
+<script src="/static/js/jquery.poptrox.min.js"></script>
 		<script>
 $('.ui.sticky')
 .sticky({
 	context: '#nav',
 })
 ;
+var foo = $('#gallery');
+foo.poptrox();
 		</script>
 {% endblock %}
