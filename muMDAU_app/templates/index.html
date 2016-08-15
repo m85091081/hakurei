@@ -109,8 +109,11 @@
             <div id = "mainmenu" class="ui menu" style="width:100%; position: absolute; height:45px; top:calc(100% - 105px); background-color:rgba(255,255,255,0.5)">
                 <div class= "ui container">
                     <div class="right menu">
-                        <a id ="home" data-content="預訂下一場:{{E1Name}} - {{E1D}}"  class="item {% block index %}{% endblock %}" href="/" style="pading:1px;">
+                        <a   class="item {% block index %}{% endblock %}" href="/" style="pading:1px;">
                             <h4><i style="padding-right:4px;" class="fa fa-home"></i>羽天珼岸</h4>
+                        </a>
+                        <a id ="home" data-content="預訂下一場:{{E1Name}} - {{E1D}}"  class="item"  style="pading:1px;">
+                           <i style="padding-right:4px;" class="fa fa-info"></i>場次資訊
                         </a>
                         <a class="item {% block blog %}{% endblock %}" href="https://hakurei.club/blog">
                             <i style="padding-right:5px;"  class="fa fa-comments"></i> 躲雨閒聊
@@ -141,6 +144,9 @@
 window.onload=function(){
     $('#home').popup('show');
     $('#info').popup('show');
+    setTimeout(function () {
+    $('#home').popup('hide');
+    },2000)
     setTimeout(function () {
     $('#info').popup('hide');
     },5000)
