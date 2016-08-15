@@ -108,7 +108,6 @@
             </div>
             <div id = "mainmenu" class="ui menu" style="width:100%; position: absolute; height:45px; top:calc(100% - 105px); background-color:rgba(255,255,255,0.5)">
                 <div class= "ui container">
-                    <a class = "item">>快點小築<</a>
                     <div class="right menu">
                         <a id ="home" data-content="預訂下一場:{{E1Name}} - {{E1D}}"  class="item {% block index %}{% endblock %}" href="/" style="pading:1px;">
                             <h4><i style="padding-right:4px;" class="fa fa-home"></i>羽天珼岸</h4>
@@ -138,6 +137,16 @@
 {% endblock %}
 {% block script %}
 <script>
+
+window.onload=function(){
+    $('#home').popup('show');
+    $('#info').popup('show');
+    setTimeout(function () {
+    $('#info').popup('hide');
+    },5000)
+
+};
+
 function shake(div){
     var interval = 100;                                                       
     var distance = 10;                                                             
