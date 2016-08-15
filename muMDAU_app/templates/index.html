@@ -1,34 +1,172 @@
-{% extends "nbase.html"%}
-{% block title %}Index{% endblock %}
-{% block index %}
-active
-{% endblock %}
-{% block picture %}
-<a class="ui fluid image">
-<img   class="ui fluid rounded image" width="100%" src="/static/img/hana004.jpg">
-</a>
-{% endblock %}
-{% block text %}
-<h3 class="ui horizontal divider header">
-寫做「志同道合」唸做「腦袋有洞」
-</h3>
-<img class ="ui right floated image"src="/static/img/pic.png" style="right:2%; max-height:260px">
-<br>
-<br>
-<p>本是彼此認識的ACG同好，突然在場次一個發病就開始搞起了同人社團</p>
-<p>一切的起因源於FF27，一群同動漫社團、</p>
-<p>腦子有洞的ACG同好們決定舉桿起義…… 喔不，我是說成立同人社團。</p>
-<p>除了目前擔當主筆的繪師夢築以及棉花，我們也會跟其他繪師合作發售商品，</p>
-<p>增加多元性，風格較不拘。由於社團成員遍及北中南，</p>
-<p>所以我們會在台灣各大場次展開活動，歡迎各位同好前與我們交流！</p>
+{% extends "base.html"%}
+{% block title %}首頁{% endblock %}
+{% block body %}
+<div style="position:relative; height:100%;">
+    <div style="height:60px;"></div>
+    <div id ="backimg" style="width: 100%; z-index: 1; height:calc(100% - 120px);  background-size:cover;   display: block;   position: fixed; background-image:url(/static/img/hana004.jpg);"></div>
+    <div style="position: fixed; left: 0; right: 0; z-index: 1; height:calc(100% - 120px);">
+        <div style="position: relative; height:100%; width:100%; float:right;">
+            <div id = "info" onclick="run();" style="z-index:2; width:200px; position: absolute; left: 5%; bottom: 0px; height:60%;"data-content="你好我是社團刊板娘小築，點我可以看到更多關於我們的故事喔！" ></div>
+            <img id = "run"  style="z-index:1; position: absolute; left: 0px; bottom: 0px; height:60%;" onclick="run();" src="/static/img/pic.png"></img>
+            <div id="back" style="top:1%; padding:20px; display:none; position: absolute; left:2%; background: rgba(255,255,255,0.75); width:0; height:98%;">
+                <div class="ui tab" data-tab="member" style="padding:50px; padding-right:85px; position: absolute; left:20%; top:0%; width:80%; height:100%">
+                    <h1 class="ui header">
+                        成員:寫做「超級有才」唸作「一群瘋子」
+                        <div class="ui divider" style="width:90%;"></div>
+                    </h1>
+                    <div class="ui accordion" style="overflow:auto;">
+                        <div class="title" style="font-size:1.4em;">
+                            <i class="dropdown icon"></i>
+                            攤主
+                        </div>
+                        <div class="content" style="font-size:1.15em;">
+                            <p class="transition hidden">
+                            靈夢: <br/>
+                            <br/>
+                            羽天珼岸靈魂人物，重量級(物理)的攤主<br/>
+                            負責統籌團內事務、爭取場次，以及管理社團網站<br/>
+                            本身體弱多病(爆肝太多)，<s>故衝撞及拍打時請注意力道</s><br/>
+                            <br/>
+
+                            呆翰:<br/>
+                            <br/>
+                            羽天珼岸社團會計兼財務兼技術支援兼攤主<br/>
+                            本身對音樂和艦娘略知一二<br/>
+                            最喜歡的艦娘應該是天津風
+                            </p>
+                        </div>
+                        <div class="title" style="font-size:1.4em;">
+                            <i class="dropdown icon"></i>
+                            繪師
+                        </div>
+                        <div class="content" style="font-size:1.15em;">
+                            <p class="transition hidden">
+                            夢築: <br/>
+                            <br/>
+                            羽天珼岸命脈，社團御用繪師<br/>
+                            負責畫艦隊以及東方相關同人作品<br/>
+                            非常喜歡瑞鳳，<s>尤其是糟糕的瑞鳳</s><br/>
+                            <br/>
+
+                            棉花:<br/>
+                            <br/>
+                            羽天珼岸命脈，社團御用繪師<br/>
+                            負責畫東方相關的同人作品<br/>
+                            目前因為在大學畢業專題無限期富堅中
+                            </p>
+                        </div>
+                        <div class="title" style="font-size:1.4em;">
+                            <i class="dropdown icon"></i>
+                            小精靈
+                        </div>
+                        <div class="content" style="font-size:1.15em;">
+                            <p class="transition hidden">
+                            奏音: <br/>
+                            <br/>
+                            羽天珼岸重量級(物理)攤位活動主持人<br/>
+                            是個會穿著繪里T-shirt來擺艦娘攤的LOVELIVER<br/>
+                            本命是絢瀨繪里<br/>
+                            <br/>
+
+                            折喵:<br/>
+                            <br/>
+                            羽天珼岸顧攤小精靈<br/>
+                            由於聲音很大所以有活動時會在旁輔助奏音<br/>
+                            同樣也是個LOVELIVER，本命是星空凜<br/>
+                            <br/>
+
+                            加敦:<br/>
+                            <br/>
+                            羽天珼岸投資人兼大股東 (誤<br/>
+                            場次上也會來幫忙顧攤<br/>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ui active tab" data-tab="info" style="padding:50px; padding-right:85px; position: absolute; left:20%; top:0%; width:80%; height:100%">
+                    <h1 class="ui header">
+                        關於:寫做「志同道合」唸作「腦袋有洞」
+                        <div class="ui divider" style="width:90%;"></div>
+                    </h1>
+                    <h4 style="font-size:1.5em;" >本是彼此認識的ACG同好，突然在場次一個發病就開始搞起了同人社團</h4>
+                    <h4 style="font-size:1.5em;">一切的起因源於FF27，一群同動漫社團、</h4>
+                    <h4 style="font-size:1.5em;">腦子有洞的ACG同好們決定舉桿起義…… 喔不，我是說成立同人社團。</h4>
+                    <h4 style="font-size:1.5em;">除了目前擔當主筆的繪師夢築以及棉花，我們也會跟其他繪師合作發售商品，</h4>
+                    <h4 style="font-size:1.5em;">增加多元性，風格較不拘。由於社團成員遍及北中南，</h4>
+                    <h4 style="font-size:1.5em;">所以我們會在台灣各大場次展開活動，歡迎各位同好前與我們交流！</h4>
+                </div>
+                <div class="ui right fixed vertical labeled icon show menu" style="position: absolute; background-color:rgba(255,255,255,0.5);">
+                    <a class="active item" data-tab="info">
+                        <i class="info circle icon"></i>   
+                        關於
+                    </a>
+                    <a class="item" data-tab="member">
+                        <i class="info circle icon"></i>   
+                        成員
+                    </a>
+                </div>
+            </div>
+            <div id = "mainmenu" class="ui menu" style="width:100%; position: absolute; height:45px; top:calc(100% - 105px); background-color:rgba(255,255,255,0.5)">
+                <div class= "ui container">
+                    <a class = "item">>快點小築<</a>
+                    <div class="right menu">
+                        <a id ="home" data-content="預訂下一場:{{E1Name}} - {{E1D}}"  class="item {% block index %}{% endblock %}" href="/" style="pading:1px;">
+                            <h4><i style="padding-right:4px;" class="fa fa-home"></i>羽天珼岸</h4>
+                        </a>
+                        <a class="item {% block blog %}{% endblock %}" href="https://hakurei.club/blog">
+                            <i style="padding-right:5px;"  class="fa fa-comments"></i> 躲雨閒聊
+                        </a>
+                        <a class="item {% block fb %}{% endblock %}" href="https://www.facebook.com/HakureiWing/">
+                            <i style="padding-right:8px;"  class="fa fa-facebook-official"></i> 轉移陣地
+                        </a>
+                        <a class="item {% block card %}{% endblock %}" href="https://wing.hakurei.club">
+                            <i style="padding-right:5px;"  class="fa fa-picture-o"></i> 賣愛心筆
+                        </a>
+                        <a class="item {% block contact %}{% endblock %}" href="mailto:contact@hakurei.club">
+                            <i style="padding-right:5px;"  class="fa fa-envelope-o"></i> 買把傘吧
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="bottom:0px; top:calc(100% - 60px);height:60px;">
+            <div style="padding:5px; text-align:right;"><i class="fa fa-copyright"></i> 羽天珼岸.HakureiWing / Hakurei.Club / illust: 夢築
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block script %}
+<script>
+function run() {
+    if ($("#back").is(":hidden"))
+    {
+        $("#run").animate({left:"150%"},1000).animate({left:"0%"},700);
+        $('#back').show();
+        $('#backimg').addClass("blur");
+        $('#info').hide();
+        $("#back").animate({width:'96%'}, 1000);
+        $('#mainmenu').hide();
+        $("#run").animate({top:"-=8"},210).animate({top:"+=8"},180).animate({top:"-=8"},150).animate({top:"+=8"},130).animate({top:"-=8"},100).animate({top:"+=8"},80)    ;
 
-		<script>
-$('.ui.sticky')
-.sticky({
-	context: '#nav',
+    }
+    else
+    {
+        $("#run").animate({left:'0%'}, 200);
+        $("#back").animate({width:'0%'}, 300);
+        $('#back').hide();
+        $('#backimg').removeClass("blur");
+        $('#info').show();
+        $('#mainmenu').show();
+        $("#run").animate({top:"-=8"},210).animate({top:"+=8"},180).animate({top:"-=8"},150).animate({top:"+=8"},130).animate({top:"-=8"},100).animate({top:"+=8"},80)   ;
+    }
+}
+$('#info').popup();
+$('#home').popup();
+$('.show.menu .item').tab();
+$('.ui.accordion')
+.accordion({
 })
 ;
-		</script>
+</script>
 {% endblock %}

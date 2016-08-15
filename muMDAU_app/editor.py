@@ -36,11 +36,11 @@ def delped(listmd):
             with open(pathuser, 'r') as f:
                 fline = f.readline()
                 if fline.replace('\n', '') == hashsha.hexdigest():
-                    filepath = './hakureinews/_posts/' + str(listmd)
+                    filepath = './blog/_posts/' + str(listmd)
                     os.remove(filepath)
                     message = 'del_posts'
                     # subprocess call bash todo autoauth github
-                    subprocess.call(['bash script/autoAuth.sh ' + user + ' ' + passd + ' ./hakureinews ' + message], shell=True)
+                    subprocess.call(['bash script/autoAuth.sh ' + user + ' ' + passd + ' ./blog ' + message], shell=True)
                     return '文章已刪除..' 
                 else:
                     return '密碼錯誤是要登入三小'
@@ -60,9 +60,9 @@ def edit(username=None):
 def jsonlist(lists):
     if 'username' in session:
         if lists == 'posts':
-            postpath = './hakureinews/_posts'
+            postpath = './_posts'
         else:
-            postpath = './hakureinews/_posts'
+            postpath = './blog/_posts'
 
         if os.path.exists(postpath):
             directory = os.path.expanduser(postpath)
@@ -100,7 +100,7 @@ def save():
         if not fil.strip():
             return 'please enter title thanks!'
         else:
-            f = open('./hakureinews/_posts/' + filen + '.markdown', 'wb+') 
+            f = open('_posts/' + filen + '.markdown', 'wb+') 
             f.write(argment.encode('UTF-8'))
             f.close()
             return 'system (save)'
@@ -113,25 +113,25 @@ def submit():
         fil = request.form['title']
         import datetime
         now = datetime.datetime.now()
-        directory = os.path.expanduser('./hakureinews/_posts/')
+        directory = os.path.expanduser('./blog/_posts/')
         for f in os.listdir(directory):
             if os.path.isfile(os.path.join(directory, f)):
                 ldata = f.split('-', 3)
                 name = str(ldata[-1]).split('.markdown')
                 if str(name[0]) == str(fil):
-                    os.remove('./hakureinews/_posts/' + str(f))
+                    os.remove('./blog/_posts/' + str(f))
         filen = now.strftime('%Y-%m-%d') + '-' + fil 
         if not fil.strip():
             return 'please eneter title thanks'
         else:
             user = request.form['username']
             passd = request.form['password']
-            f = open('./hakureinews/_posts/' + filen + '.markdown', 'wb+') 
+            f = open('./blog/_posts/' + filen + '.markdown', 'wb+') 
             f.write(argment.encode('UTF-8'))
             f.close()
             message = 'add_new_posts_' + filen
             # subprocess call bash todo autoauth github
-            gitdoit = subprocess.Popen(['bash script/autoAuth.sh ' + user + ' ' + passd + ' ./hakureinews ' + message], shell=True, stdout=PIPE, stderr=PIPE)
+            gitdoit = subprocess.Popen(['bash script/autoAuth.sh ' + user + ' ' + passd + ' ./blog ' + message], shell=True, stdout=PIPE, stderr=PIPE)
             outcode, error = gitdoit.communicate()
             print(outcode)
             return outcode
@@ -140,7 +140,7 @@ def submit():
 @markdown.route('/list/<listmd>', methods=['GET', 'POST'])
 def markdownr(listmd):
     if request.method == 'POST':
-        f = open('./hakureinews/_posts/' + listmd)
+        f = open('./_posts/' + listmd)
         return f.read()
     else:
         return '你怎摸不去吃大便'
@@ -149,7 +149,7 @@ def markdownr(listmd):
 @markdown.route('/del/posts/<listmd>', methods=['GET', 'POST'])
 def delposts(listmd):
     if request.method == 'POST':
-        filepath = './hakureinews/_posts/' + str(listmd)
+        filepath = './_posts/' + str(listmd)
         os.remove(filepath)
         return 'OK'
     else:
@@ -159,7 +159,7 @@ def delposts(listmd):
 @markdown.route('/listed/<listposed>', methods=['GET', 'POST'])
 def markdownrp(listposed):
     if request.method == 'POST':
-        f = open('./hakureinews/_posts/' + listposed)
+        f = open('./blog/_posts/' + listposed)
         return f.read()
     else:
         return '在try我的後台嘛？你怎摸不去吃大便'
