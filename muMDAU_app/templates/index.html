@@ -2,7 +2,11 @@
 {% block title %}首頁{% endblock %}
 {% block body %}
 <div style="position:relative; height:100%;">
-    <div style="height:60px;"></div>
+    <div style="height:60px;">
+            <div class="ui horizontal divider" style="height:30px; margin:0px; padding-top:24px;">
+               ＊.羽天珼岸.HakureiWing Offical Site.＊
+            </div>
+    </div>
     <div id ="backimg" style="width: 100%; z-index: 1; height:calc(100% - 120px);  background-size:cover;   display: block;   position: fixed; background-image:url(/static/img/hana004.jpg);"></div>
     <div style="position: fixed; left: 0; right: 0; z-index: 1; height:calc(100% - 120px);">
         <div style="position: relative; height:100%; width:100%; float:right;">
@@ -131,10 +135,9 @@
                 </div>
             </div>
         </div>
-        <div style="bottom:0px; top:calc(100% - 60px);height:60px;">
-            <div style="padding:5px; text-align:right;"><i class="fa fa-copyright"></i> 羽天珼岸.HakureiWing / Hakurei.Club / illust: 夢築
+            <div class="ui horizontal divider" style="padding-top:24px;">
+                <i class="fa fa-copyright"></i> 2016 羽天珼岸 / illust: 夢築 / 0MuCMS
             </div>
-        </div>
     </div>
 </div>
 {% endblock %}
