@@ -18,10 +18,10 @@
                         成員:寫做「超級有才」唸作「一群瘋子」
                         <div class="ui divider" style="width:90%;"></div>
                     </h1>
-                    <div id="our" style="overflow:hidden; height:calc(100% - 50px);">
+                    <div class="our" style="overflow:hidden; height:calc(100% - 50px);">
                         <h3> 攤主</h3>
                                 <p >
-                                靈夢: <br/>
+                                零夢: <br/>
                                 <br/>
                                 羽天珼岸靈魂人物，重量級(物理)的攤主<br/>
                                 負責統籌團內事務、爭取場次，以及管理社團網站<br/>
@@ -80,12 +80,37 @@
                         關於:寫做「志同道合」唸作「腦袋有洞」
                         <div class="ui divider" style="width:90%;"></div>
                     </h1>
-                    <h4 style="font-size:1.5em;" >本是彼此認識的ACG同好，突然在場次一個發病就開始搞起了同人社團</h4>
-                    <h4 style="font-size:1.5em;">一切的起因源於FF27，一群同動漫社團、</h4>
-                    <h4 style="font-size:1.5em;">腦子有洞的ACG同好們決定舉桿起義…… 喔不，我是說成立同人社團。</h4>
-                    <h4 style="font-size:1.5em;">除了目前擔當主筆的繪師夢築以及棉花，我們也會跟其他繪師合作發售商品，</h4>
-                    <h4 style="font-size:1.5em;">增加多元性，風格較不拘。由於社團成員遍及北中南，</h4>
-                    <h4 style="font-size:1.5em;">所以我們會在台灣各大場次展開活動，歡迎各位同好前與我們交流！</h4>
+                    <div class="our" style="overflow:hidden; height:calc(100% - 50px);">
+                    <p style="font-size:1.2em;">
+                    <br/>
+                    一切的起因源於FF27，一群同動漫社團<br />
+                    本是彼此認識的ACG同好，突然在場次一個發病......<br />
+                    <br />
+                    「我們下個場次來擺攤好不好？」<br />
+                    「......你認真？」<br />
+                    「認真，你們都已經在這個社團裡頭了。」<br />
+                    「Q口Q！！！！！！」<br /><br />
+                    腦子有洞的ACG同好們決定<s>舉桿起義</s>…… <br />
+                    成立同人社團。<br />
+                    <br />
+                    「就憑這個陣容真的沒問題嗎......」<br />
+                    「安啦，我們繪師是重量級(實力)的，攤主和小精靈也是重量級(物理)的。」<br />
+                    「誰來救救我......QQ」<br /><br />
+                    除了目前擔當主筆的繪師夢築以及棉花，我們也會跟其他繪師合作發售商品<br />
+                    風格較不拘，但都一貫的有病。<br />
+                    <br />
+                    「我好想出R18本......」(口水<br />
+                    「<s>我幫你想題材</s>」（攤主遭毆<br />
+                    <br />
+                    由於社團成員遍及北中南，<br />
+                    所以我們會在台灣各大場次展開活動<br />
+                    <br />
+                    「話說我們社團為甚麼叫<s>雨天備案</s>啊？」<br />
+                    「是羽天珼岸才對！」(巴頭<br />
+                    <br />
+                    總之歡迎各位同好前來與我們交流啦~ XDDDDD)))<br />
+                    </p>
+                    </div>
                 </div>
                 <div class="ui right fixed vertical labeled icon show menu" style="position: absolute; background-color:rgba(255,255,255,0.5);">
                     <a class="active item" data-tab="info">
@@ -127,7 +152,7 @@
 {% endblock %}
 {% block script %}
 <script>
-$("#our").on("mouseenter mouseleave", function (event) { 
+$(".our").on("mouseenter mouseleave", function (event) { 
   if (event.type == "mouseenter") {
       $(this).css({"overflow-y": "scroll"}); //滑鼠進入
     } else {
