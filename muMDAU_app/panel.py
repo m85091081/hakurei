@@ -27,21 +27,6 @@ def edel(ev):
         else:
             return redirect(url_for('panel'))
 
-@app.route('/init', methods=['GET', 'POST'])
-def init():
-    if request.method == 'POST':
-        user = request.form['buser']
-        passd = request.form['bpass']
-        import hashlib
-        hashsha = hashlib.sha256(passd.replace('\n', '').encode())
-        ManageSQL.addUser(user, hashsha.hexdigest(), '1', '0')
-        return redirect(url_for('panel'))
-    else:
-        answer = countUSER.countAdmin()
-        if answer[0] == 0:
-            return render_template('first.html')
-        else:
-            return redirect(url_for('panel'))
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
